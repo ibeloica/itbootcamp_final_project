@@ -12,7 +12,7 @@ public abstract class BasicTest {
 
     public WebDriver driver;
 
-    private String baseUrl = "https://vue-demo.daniel-avellaneda.com";
+    protected String baseUrl = "https://vue-demo.daniel-avellaneda.com";
 
     protected CitiesPage citiesPage;
     protected LoginPage loginPage;

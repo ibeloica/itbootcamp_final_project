@@ -30,13 +30,13 @@ public class LoginTests extends BasicTest {
                         .findElement(By.id("email")).getAttribute(
                                 "type"),
                 "email",
-                "[ERROR]: Username field input type is not text");
+                "[ERROR]: Email field input type is not email");
 
         Assert.assertEquals(driver
                         .findElement(By.id("password")).getAttribute(
                                 "type"),
                 "password",
-                "[ERROR]: Username field input type is not password");
+                "[ERROR]: Password field input type is not password");
     }
 
     @Test(priority = 30)
