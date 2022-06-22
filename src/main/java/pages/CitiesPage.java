@@ -17,10 +17,14 @@ public class CitiesPage {
     }
 
     public WebElement getNewItemButton() {
+        return driver
+                .findElement(By.className("btnNewItem"));
 
     }
 
     public WebElement getSearchInput() {
+        return driver
+                .findElement(By.id("search"));
 
     }
 
@@ -31,30 +35,42 @@ public class CitiesPage {
 //                (By.xpath("//div[contains(@class,'dlgNewEditItem')]")));
 
     }
-    public void waitForDeleteDialogToBeVisible(){
+
+    public void waitForDeleteDialogToBeVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.xpath("//div[contains(@class,'v-card__text ')]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("exclamation")));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated
+//                (By.xpath("//div[contains(@class,'v-card__text ')]")));
 //        PROVERI OVO, LOS LOKATOR!
     }
-    public WebElement getSaveButtonInEditDialog(){
+
+    public WebElement getSaveButtonInEditDialog() {
+        return driver
+                .findElement(By.className("btnSave"));
 
     }
-    public WebElement getDeleteButtonInDeleteDialog(){
+
+    public WebElement getDeleteButtonInDeleteDialog() {
+        return driver
+                .findElement(By.className("red"));
 
     }
+
     public void waitForNumberOfRowsToBe(int rowNum) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.numberOfElementsToBe(By.tagName("tr"), rowNum));
     }
+
     public WebElement getTableCell(int rowIndex, int columnIndex) {
         return driver
                 .findElement(By.xpath(
-                        "//tbody/tr["+rowIndex +"]/td["+ columnIndex +"]"));
+                        "//tbody/tr[" + rowIndex + "]/td[" + columnIndex + "]"));
     }
+
     public WebElement getEditButtonByRowIndex(int index) {
         return driver.findElements(By.className("edit")).get(index);
     }
+
     public WebElement getDeleteButtonByRowIndex(int index) {
         return driver.findElements(By.className("delete")).get(index);
     }

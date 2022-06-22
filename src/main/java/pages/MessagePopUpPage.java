@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,28 +16,30 @@ public class MessagePopUpPage {
         this.driver = driver;
     }
 
-    public void waitForPopUpToBeVisible(){
+    public void waitForPopUpToBeVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("error")));
     }
 
 //    Elemente koji u sebi sadrze tekstove poruke
 
-    public WebElement getCloseButton(){
-
-    }
-    public void waitForVerifyYourAccountDialogToBeVisible(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated());
-    }
-    public WebElement getVerifyYourAccountDialogHeader(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.textToBePresentInElement());
-    }
-    public WebElement getVerifyAccountCloseButton(){
-
+    public WebElement getCloseButton() {
+        return driver
+                .findElement(By.className("theme--dark"));
     }
 
+//    public void waitForVerifyYourAccountDialogToBeVisible() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated());
+//    }
+//
+//    public WebElement getVerifyYourAccountDialogHeader() {
+//
+//    }
+//
+//    public WebElement getVerifyAccountCloseButton() {
+//
+//    }
 
 
 }

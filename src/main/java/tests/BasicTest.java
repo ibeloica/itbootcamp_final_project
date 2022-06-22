@@ -8,17 +8,17 @@ import pages.*;
 import java.time.Duration;
 
 
-public class BasicTest {
+public abstract class BasicTest {
 
     public WebDriver driver;
 
     private String baseUrl = "https://vue-demo.daniel-avellaneda.com";
 
-    private CitiesPage citiesPage;
-    private LoginPage loginPage;
-    private NavPage navPage;
-    private MessagePopUpPage messagePopUpPage;
-    private SignupPage signupPage;
+    protected CitiesPage citiesPage;
+    protected LoginPage loginPage;
+    protected NavPage navPage;
+    protected MessagePopUpPage messagePopUpPage;
+    protected SignupPage signupPage;
 
 
     @BeforeClass
@@ -43,6 +43,7 @@ public class BasicTest {
 
     public void beforeMethod() {
         driver.get(baseUrl);
+        driver.manage().window().maximize();
     }
 
 

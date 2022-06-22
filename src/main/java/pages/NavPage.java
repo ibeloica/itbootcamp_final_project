@@ -12,46 +12,78 @@ public class NavPage {
         this.driver = driver;
     }
 
-    public WebElement getHomeLink(){
+    public WebElement getHomeLink() {
+        return driver
+                .findElement(By.className("btnHome"));
+    }
+
+    public WebElement getAboutLink() {
+        return driver
+                .findElement(By.className("btnAbout"));
+    }
+
+    public WebElement getMyProfileLink() {
+        return driver
+                .findElement(By.className("btnProfile"));
+    }
+
+    public WebElement getAdminButton() {
+        return driver
+                .findElement(By.className("btnAdmin"));
+    }
+
+    public WebElement getCitiesLinkByAdminMenu() {
+        return driver
+                .findElement(By.className("btnAdminCities"));
 
     }
-    public WebElement getAboutLink(){
+
+    public WebElement getUsersLinkByAdminMenu() {
+        return driver
+                .findElement(By.className("btnAdminUsers"));
+    }
+
+    public WebElement getSignupButton() {
+        return driver
+                .findElement(By.xpath("//div[3]/a[4])"));
+    }
+
+    public WebElement getLoginButton() {
+        return driver
+                .findElement(By.xpath("//div[3]/a[3])"));
+    }
+
+    public WebElement getLogoutButton() {
+        return driver
+                .findElement(By.className("btnLogout"));
+    }
+
+    public WebElement getLanguageButton() {
+        return driver
+                .findElement(By.xpath("//button[contains(@class,'btnLocaleActivation')]"));
+    }
+
+    public WebElement getENLanguageButton() {
+        return driver
+                .findElement(By.className("btnEN"));
 
     }
-    public WebElement getMyProfileLink(){
+
+    public WebElement getESLanguageButton() {
+        return driver
+                .findElement(By.className("btnES"));
 
     }
-    public WebElement getAdminButton(){
+
+    public WebElement getFRLanguageButton() {
+        return driver
+                .findElement(By.className("btnFR"));
 
     }
-    public WebElement getCitiesLinkByAdminMenu(){
 
-    }
-    public WebElement getUsersLinkByAdminMenu(){
-
-    }
-    public WebElement getSignupButton(){
-
-    }
-    public WebElement getLoginButton(){
-
-    }
-    public WebElement getLogoutButton(){
-
-    }
-    public WebElement getLanguageButton(){
-
-    }
-    public WebElement getENLanguageButton(){
-
-    }
-    public WebElement getESLanguageButton(){
-
-    }
-    public WebElement getFRLanguageButton(){
-
-    }
-    public WebElement getCNLanguageButton(){
+    public WebElement getCNLanguageButton() {
+        return driver
+                .findElement(By.className("btnCN"));
 
     }
 
