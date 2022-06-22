@@ -21,7 +21,10 @@ public class MessagePopUpPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("error")));
     }
 
-//    Elemente koji u sebi sadrze tekstove poruke
+    public WebElement getPopUpMessageText() {
+        return driver.findElement(By.xpath("//div [contains(@role, 'status')]/ul/li"));
+    }
+
 
     public WebElement getCloseButton() {
         return driver
