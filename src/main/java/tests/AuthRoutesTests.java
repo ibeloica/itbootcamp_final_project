@@ -18,7 +18,7 @@ public class AuthRoutesTests extends BasicTest {
 
     @Test(priority = 20)
 
-    public void forbidsVisitsToProfileUrlIfNotAuthenticated(){
+    public void forbidsVisitsToProfileUrlIfNotAuthenticated() {
 
         driver.get(baseUrl + "/profile");
 
@@ -27,9 +27,18 @@ public class AuthRoutesTests extends BasicTest {
 
     @Test(priority = 30)
 
-    public void forbidsVisitsToAdminCitiesUrlIfNotAuthenticated(){
+    public void forbidsVisitsToAdminCitiesUrlIfNotAuthenticated() {
 
         driver.get(baseUrl + "/admin/cities");
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+    }
+
+    @Test(priority = 40)
+
+    public void forbidsVisitsToAdminUsersUrlIfNotAuthenticated() {
+
+        driver.get(baseUrl + "/admin/users");
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
     }
