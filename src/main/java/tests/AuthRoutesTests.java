@@ -11,7 +11,8 @@ public class AuthRoutesTests extends BasicTest {
 
         driver.get(baseUrl + "/home");
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+        Assert.assertTrue(driver.getCurrentUrl()
+                .contains("/login"));
 
 
     }
@@ -22,7 +23,8 @@ public class AuthRoutesTests extends BasicTest {
 
         driver.get(baseUrl + "/profile");
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+        Assert.assertTrue(driver.getCurrentUrl()
+                .contains("/login"));
     }
 
     @Test(priority = 30)
@@ -31,7 +33,8 @@ public class AuthRoutesTests extends BasicTest {
 
         driver.get(baseUrl + "/admin/cities");
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+        Assert.assertTrue(driver.getCurrentUrl()
+                .contains("/login"));
     }
 
     @Test(priority = 40)
@@ -40,6 +43,7 @@ public class AuthRoutesTests extends BasicTest {
 
         driver.get(baseUrl + "/admin/users");
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+        Assert.assertTrue(driver.getCurrentUrl()
+                .contains("/login"));
     }
 }

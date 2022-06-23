@@ -1,10 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -59,10 +57,8 @@ public class CitiesPage {
 
     public void waitForDeleteDialogToBeVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("exclamation")));
         wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[contains(@class,'v-card__text ')]")));
-//        PROVERI OVO, LOS LOKATOR!
     }
 
     public WebElement getSaveButtonInEditDialog() {

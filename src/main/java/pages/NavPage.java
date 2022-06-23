@@ -18,7 +18,7 @@ public class NavPage {
 
     public WebElement getHomeLink() {
         return driver
-                .findElement(By.xpath("btnHome"));
+                .findElement(By.className("btnHome"));
     }
 
     public WebElement getAboutLink() {
@@ -71,14 +71,6 @@ public class NavPage {
         return driver
                 .findElement(By.xpath("//button[contains(@class,'btnLocaleActivation')]"));
     }
-//    public void waitForLanguageDropToBeVisible() {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("btnEN")));
-//    }
-//    public void waitForLanguageDropToBeInvisible() {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("btnEN")));
-//    }
 
     public WebElement getENLanguageButton() {
         return driver
@@ -104,7 +96,7 @@ public class NavPage {
 
     }
 
-    public WebElement headerText(){
+    public WebElement headerText() {
         return driver.findElement(By.className("layout"));
     }
 

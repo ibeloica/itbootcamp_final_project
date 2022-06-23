@@ -13,7 +13,8 @@ public class SignupTests extends BasicTest {
         navPage.getSignupButton()
                 .click();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/signup"));
+        Assert.assertTrue(driver.getCurrentUrl()
+                .contains("/signup"));
 
     }
 
@@ -25,19 +26,22 @@ public class SignupTests extends BasicTest {
                 .click();
 
         Assert.assertEquals(driver
-                        .findElement(By.id("email")).getAttribute(
+                        .findElement(By.id("email"))
+                        .getAttribute(
                                 "type"),
                 "email",
                 "[ERROR]: Email field input type is not email");
 
         Assert.assertEquals(driver
-                        .findElement(By.id("password")).getAttribute(
+                        .findElement(By.id("password"))
+                        .getAttribute(
                                 "type"),
                 "password",
                 "[ERROR]: Password field input type is not password");
 
         Assert.assertEquals(driver
-                        .findElement(By.id("confirmPassword")).getAttribute(
+                        .findElement(By.id("confirmPassword"))
+                        .getAttribute(
                                 "type"),
                 "password",
                 "[ERROR]: Password field input type is not password");
@@ -51,19 +55,24 @@ public class SignupTests extends BasicTest {
         navPage.getSignupButton()
                 .click();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/signup"));
+        Assert.assertTrue(driver.getCurrentUrl()
+                .contains("/signup"));
 
-        signupPage.getNameInput().sendKeys(
-                "Another User");
+        signupPage.getNameInput()
+                .sendKeys(
+                        "Another User");
 
-        signupPage.getEmailInput().sendKeys(
-                "admin@admin.com");
+        signupPage.getEmailInput()
+                .sendKeys(
+                        "admin@admin.com");
 
-        signupPage.getPasswordInput().sendKeys(
-                "12345");
+        signupPage.getPasswordInput()
+                .sendKeys(
+                        "12345");
 
-        signupPage.getConfirmPasswordInput().sendKeys(
-                "12345");
+        signupPage.getConfirmPasswordInput()
+                .sendKeys(
+                        "12345");
 
         signupPage.getSignMeUpButton()
                 .click();
@@ -74,7 +83,8 @@ public class SignupTests extends BasicTest {
                 "E-mail already exists",
                 "[ERROR]: Message popup text is not 'E-mail already exists'");
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/signup"));
+        Assert.assertTrue(driver.getCurrentUrl()
+                .contains("/signup"));
 
     }
 

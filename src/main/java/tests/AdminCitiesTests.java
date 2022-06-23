@@ -32,7 +32,8 @@ public class AdminCitiesTests extends BasicTest {
                 .click();
 
         Assert.assertTrue(
-                driver.getCurrentUrl()
+                driver
+                        .getCurrentUrl()
                         .contains("/admin/cities"));
 
     }
@@ -53,7 +54,8 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.waitForCreateEditDialogToBeVisible();
 
         Assert.assertEquals(
-                driver.findElement(By.id("name"))
+                driver
+                        .findElement(By.id("name"))
                         .getAttribute(
                                 "type"),
                 "text",
@@ -110,7 +112,8 @@ public class AdminCitiesTests extends BasicTest {
 
         citiesPage.waitForNumberOfRowsToBe(1);
 
-        citiesPage.getEditButtonByRowIndex(0).click();
+        citiesPage.getEditButtonByRowIndex(0)
+                .click();
 
         citiesPage.waitForCreateEditDialogToBeVisible();
 
@@ -150,7 +153,8 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.waitForNumberOfRowsToBe(1);
 
         Assert.assertTrue(driver.findElement(By.xpath(
-                                "//td [contains(@class, 'text-left')]")).getText()
+                                "//td [contains(@class, 'text-left')]"))
+                        .getText()
                         .contains(driver.findElement(By.id("search")).getText()),
 
                 "[ERROR]: Search result does not match search input");
@@ -175,7 +179,8 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.waitForNumberOfRowsToBe(1);
 
         Assert.assertTrue(driver.findElement(By.xpath(
-                                "//td [contains(@class, 'text-left')]")).getText()
+                                "//td [contains(@class, 'text-left')]"))
+                        .getText()
                         .contains(driver.findElement(By.id("search")).getText()),
                 "[ERROR]: Search result does not match search input");
 

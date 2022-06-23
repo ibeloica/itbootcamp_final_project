@@ -57,7 +57,7 @@ public abstract class BasicTest {
     @AfterClass
     public void afterClass() {
 
-//        driver.quit();
+        driver.quit();
 
     }
 
