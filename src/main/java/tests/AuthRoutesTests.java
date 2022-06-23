@@ -24,4 +24,13 @@ public class AuthRoutesTests extends BasicTest {
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
     }
+
+    @Test(priority = 30)
+
+    public void forbidsVisitsToAdminCitiesUrlIfNotAuthenticated(){
+
+        driver.get(baseUrl + "/admin/cities");
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+    }
 }
