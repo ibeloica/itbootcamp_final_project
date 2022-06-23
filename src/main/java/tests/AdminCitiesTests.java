@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -31,7 +32,8 @@ public class AdminCitiesTests extends BasicTest {
                 .click();
 
         Assert.assertTrue(
-                driver.getCurrentUrl().contains("/admin/cities"));
+                driver.getCurrentUrl()
+                        .contains("/admin/cities"));
 
     }
 
@@ -51,8 +53,9 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.waitForCreateEditDialogToBeVisible();
 
         Assert.assertEquals(
-                driver.findElement(By.id("name")).getAttribute(
-                        "type"),
+                driver.findElement(By.id("name"))
+                        .getAttribute(
+                                "type"),
                 "text",
                 "[ERROR]: Name field input type is not text");
 
@@ -88,5 +91,107 @@ public class AdminCitiesTests extends BasicTest {
                         .contains("Saved"),
                 "[ERROR]: Message popup text is not 'Saved successfully'");
 
+    }
+
+    @Test(priority = 40)
+
+    public void editCity() {
+
+        navPage.getAdminButton()
+                .click();
+
+        navPage.waitForCitiesMenuByAdminToBeVisible();
+
+        navPage.getCitiesByAdminMenuButton()
+                .click();
+
+        citiesPage.getSearchInput()
+                .sendKeys("Ivan Beloica's city");
+
+        citiesPage.waitForNumberOfRowsToBe(1);
+
+        citiesPage.getEditButtonByRowIndex(0).click();
+
+        citiesPage.waitForCreateEditDialogToBeVisible();
+
+        citiesPage.getEditItemInput()
+                .sendKeys(Keys.CONTROL, "a");
+
+        citiesPage.getEditItemInput()
+                .sendKeys("Ivan Beloica's city Edited");
+
+        citiesPage.getSaveButtonInEditDialog()
+                .click();
+
+        messagePopUpPage.waitForConfirmPopUpToBeVisible();
+
+        Assert.assertTrue(messagePopUpPage.getSavedSuccessfullyMessage()
+                        .getText()
+                        .contains("Saved"),
+                "[ERROR]: Message popup text is not 'Saved successfully'");
+
+    }
+
+    @Test(priority = 50)
+
+    public void searchCity() {
+
+        navPage.getAdminButton()
+                .click();
+
+        navPage.waitForCitiesMenuByAdminToBeVisible();
+
+        navPage.getCitiesByAdminMenuButton()
+                .click();
+
+        citiesPage.getSearchInput()
+                .sendKeys("Ivan Beloica's city");
+
+        citiesPage.waitForNumberOfRowsToBe(1);
+
+        Assert.assertTrue(driver.findElement(By.xpath(
+                                "//td [contains(@class, 'text-left')]")).getText()
+                        .contains(driver.findElement(By.id("search")).getText()),
+
+                "[ERROR]: Search result does not match search input");
+
+    }
+
+    @Test(priority = 60)
+
+    public void deleteCity() {
+
+        navPage.getAdminButton()
+                .click();
+
+        navPage.waitForCitiesMenuByAdminToBeVisible();
+
+        navPage.getCitiesByAdminMenuButton()
+                .click();
+
+        citiesPage.getSearchInput()
+                .sendKeys("Ivan Beloica's city");
+
+        citiesPage.waitForNumberOfRowsToBe(1);
+
+        Assert.assertTrue(driver.findElement(By.xpath(
+                                "//td [contains(@class, 'text-left')]")).getText()
+                        .contains(driver.findElement(By.id("search")).getText()),
+                "[ERROR]: Search result does not match search input");
+
+        citiesPage.getDeleteButtonByRowIndex(0)
+                .click();
+
+        citiesPage.waitForDeleteDialogToBeVisible();
+
+        citiesPage.getDeleteButtonInDeleteDialog()
+                .click();
+
+        messagePopUpPage.waitForConfirmPopUpToBeVisible();
+
+        Assert.assertTrue(messagePopUpPage.getSavedSuccessfullyMessage()
+                        .getText()
+                        .contains("Deleted successfully"),
+                "[ERROR]: Message popup text is not 'Deleted successfully'");
     }
 }
