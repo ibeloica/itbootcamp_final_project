@@ -18,7 +18,7 @@ public class NavPage {
 
     public WebElement getHomeLink() {
         return driver
-                .findElement(By.className("btnHome"));
+                .findElement(By.xpath("btnHome"));
     }
 
     public WebElement getAboutLink() {
