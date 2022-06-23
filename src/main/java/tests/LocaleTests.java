@@ -27,4 +27,15 @@ public class LocaleTests extends BasicTest {
 
         Assert.assertTrue(navPage.headerText().getText().contains("Landing"));
     }
+
+    @Test(priority = 30)
+
+    public void setLocaleToCN() {
+
+        navPage.getLanguageButton().click();
+
+        navPage.getCNLanguageButton().click();
+
+        Assert.assertTrue(navPage.headerText().getText().contains("首页"));
+    }
 }
