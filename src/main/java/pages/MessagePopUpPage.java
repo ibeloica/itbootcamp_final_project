@@ -18,31 +18,50 @@ public class MessagePopUpPage {
 
     public void waitForPopUpToBeVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("error")));
+        wait
+                .until(ExpectedConditions
+                        .visibilityOfElementLocated(By.className("error")));
     }
+
+    public WebElement getSavedSuccessfullyMessage(){
+        return driver
+                .findElement(By.className("success"));
+    }
+
+    public void waitForConfirmPopUpToBeVisible(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait
+                .until(ExpectedConditions
+                        .visibilityOfElementLocated(By.className("success")));
+    }
+
+
+
 
     public WebElement getPopUpMessageText() {
         return driver.findElement(By.xpath("//div [contains(@role, 'status')]/ul/li"));
     }
-
 
     public WebElement getCloseButton() {
         return driver
                 .findElement(By.className("theme--dark"));
     }
 
-//    public void waitForVerifyYourAccountDialogToBeVisible() {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated());
-//    }
-//
-//    public WebElement getVerifyYourAccountDialogHeader() {
-//
-//    }
-//
-//    public WebElement getVerifyAccountCloseButton() {
-//
-//    }
+    public void waitForVerifyYourAccountDialogToBeVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("dlgVerifyAccount")));
+    }
+
+
+    public WebElement getVerifyAccountPopUpMessageHeader() {
+        return driver
+                .findElement(By.className("dlgVerifyAccount"));
+    }
+
+    public WebElement getVerifyAccountPopUpMessageCloseButton() {
+        return driver
+                .findElement(By.className("btnClose"));
+    }
 
 
 }

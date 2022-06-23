@@ -22,19 +22,34 @@ public class CitiesPage {
 
     }
 
+    public WebElement getNewItemNameInput() {
+        return driver
+                .findElement(By.id("name"));
+    }
+
+    public WebElement getNewItemSaveButton() {
+        return driver
+                .findElement(By.className("btnSave"));
+    }
+
+    public void waitForSavedSuccessfullyNewItemDialogToBeVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("wrapper")));
+    }
+
     public WebElement getSearchInput() {
         return driver
                 .findElement(By.id("search"));
 
     }
 
-    public void waitForEditDialogToBeVisible() {
+    public void waitForCreateEditDialogToBeVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("NewEditItem")));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated
-//                (By.xpath("//div[contains(@class,'dlgNewEditItem')]")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("dlgNewEditItem")));
 
     }
+
+
 
     public void waitForDeleteDialogToBeVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

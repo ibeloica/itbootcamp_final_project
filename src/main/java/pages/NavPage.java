@@ -36,10 +36,15 @@ public class NavPage {
                 .findElement(By.className("btnAdmin"));
     }
 
-    public WebElement getCitiesLinkByAdminMenu() {
+    public WebElement getCitiesByAdminMenuButton() {
         return driver
                 .findElement(By.className("btnAdminCities"));
 
+    }
+
+    public void waitForCitiesMenuByAdminToBeVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("btnAdminCities")));
     }
 
     public WebElement getUsersLinkByAdminMenu() {

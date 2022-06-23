@@ -10,7 +10,8 @@ public class SignupTests extends BasicTest {
 
     public void visitsTheSignupPage() {
 
-        navPage.getSignupButton().click();
+        navPage.getSignupButton()
+                .click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"));
 
@@ -20,7 +21,8 @@ public class SignupTests extends BasicTest {
 
     public void checksInputTypes() {
 
-        navPage.getSignupButton().click();
+        navPage.getSignupButton()
+                .click();
 
         Assert.assertEquals(driver
                         .findElement(By.id("email")).getAttribute(
@@ -46,19 +48,25 @@ public class SignupTests extends BasicTest {
 
     public void displaysErrorsWhenUserAlreadyExists() {
 
-        navPage.getSignupButton().click();
+        navPage.getSignupButton()
+                .click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"));
 
-        signupPage.getNameInput().sendKeys("Another User");
+        signupPage.getNameInput().sendKeys(
+                "Another User");
 
-        signupPage.getEmailInput().sendKeys("admin@admin.com");
+        signupPage.getEmailInput().sendKeys(
+                "admin@admin.com");
 
-        signupPage.getPasswordInput().sendKeys("12345");
+        signupPage.getPasswordInput().sendKeys(
+                "12345");
 
-        signupPage.getConfirmPasswordInput().sendKeys("12345");
+        signupPage.getConfirmPasswordInput().sendKeys(
+                "12345");
 
-        signupPage.getSignMeUpButton().click();
+        signupPage.getSignMeUpButton()
+                .click();
 
         messagePopUpPage.waitForPopUpToBeVisible();
 
@@ -74,27 +82,39 @@ public class SignupTests extends BasicTest {
 
     public void signup() {
 
-        navPage.getSignupButton().click();
+        navPage.getSignupButton()
+                .click();
 
-        signupPage.getNameInput().sendKeys("Ivan Beloica");
+        signupPage.getNameInput()
+                .sendKeys("Ivan Beloica");
 
-        signupPage.getEmailInput().sendKeys("ivan.beloica@itbootcamp.rs");
+        signupPage.getEmailInput()
+                .sendKeys("ivan.beloica@itbootcamp.rs");
 
-        signupPage.getPasswordInput().sendKeys("12345");
+        signupPage.getPasswordInput()
+                .sendKeys("12345");
 
-        signupPage.getConfirmPasswordInput().sendKeys("12345");
+        signupPage.getConfirmPasswordInput()
+                .sendKeys("12345");
 
-        signupPage.getSignMeUpButton().click();
+        signupPage.getSignMeUpButton()
+                .click();
 
-        navPage.getHomeLink().click();
+        navPage.getHomeLink()
+                .click();
 
-        Assert.assertEquals(messagePopUpPage.getPopUpMessageText().getText(),
+        messagePopUpPage.waitForVerifyYourAccountDialogToBeVisible();
+
+        Assert.assertEquals(messagePopUpPage.getVerifyAccountPopUpMessageHeader().getText(),
                 "IMPORTANT: Verify your account",
                 "[ERROR]: Message popup text is not 'IMPORTANT: Verify your account'");
 
-        messagePopUpPage.getCloseButton().click();
+        messagePopUpPage.getVerifyAccountPopUpMessageCloseButton()
+                .click();
 
-        navPage.getLogoutButton().click();
+
+        navPage.getLogoutButton()
+                .click();
 
 
     }
