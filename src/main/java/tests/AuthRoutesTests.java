@@ -15,4 +15,13 @@ public class AuthRoutesTests extends BasicTest {
 
 
     }
+
+    @Test(priority = 20)
+
+    public void forbidsVisitsToProfileUrlIfNotAuthenticated(){
+
+        driver.get(baseUrl + "/profile");
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
+    }
 }
