@@ -1,6 +1,6 @@
 package tests;
 
-import org.openqa.selenium.By;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -37,5 +37,16 @@ public class LocaleTests extends BasicTest {
         navPage.getCNLanguageButton().click();
 
         Assert.assertTrue(navPage.headerText().getText().contains("首页"));
+    }
+
+    @Test(priority = 40)
+
+    public void setLocaleToFR() {
+
+        navPage.getLanguageButton().click();
+
+        navPage.getFRLanguageButton().click();
+
+        Assert.assertTrue(navPage.headerText().getText().contains("Page d'atterrissage"));
     }
 }
