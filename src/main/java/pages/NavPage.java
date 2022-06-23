@@ -104,4 +104,8 @@ public class NavPage {
 
     }
 
+    public WebElement headerText(){
+        return driver.findElement(By.className("layout"));
+    }
+
 }
