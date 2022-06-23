@@ -16,4 +16,15 @@ public class LocaleTests extends BasicTest {
 
         Assert.assertTrue(navPage.headerText().getText().contains("Página de aterrizaje"));
     }
+
+    @Test(priority = 20)
+
+    public void setLocaleToEN() {
+
+        navPage.getLanguageButton().click();
+
+        navPage.getENLanguageButton().click();
+
+        Assert.assertTrue(navPage.headerText().getText().contains("Landing"));
+    }
 }
